@@ -1,3 +1,4 @@
+// Main React App. Manages the routing for the aplication.
 import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
@@ -15,9 +16,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 function App() {
+  /* React states
+   * user: stores the current authenticated user. Used to determine whether to show the Dashboard or the Login page.
+   * loading: stores whether the page is loading or not.
+   */
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Keeps in check if the authentication state has changed or not, to set the react states.
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

@@ -1,3 +1,4 @@
+// Register page
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
@@ -5,11 +6,17 @@ import { useNavigate } from "react-router-dom";
 import { Form, Button, Alert } from "react-bootstrap";
 
 function Register() {
+    /* React states
+     * email: stores the entered email address
+     * password: stores the entered password
+     * error: stores the error message if any has occured
+     * */
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
+    // async function to handle the register api call
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -25,9 +32,11 @@ function Register() {
             <h4>Register</h4>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3">
+                    {/* Sets the email on every change */}
                     <Form.Control size="lg" type="email" placeholder="Email*" onChange={(e) => setEmail(e.target.value)} required/>
                 </Form.Group>
                 <Form.Group className="mb-3">
+                    {/* Sets the password on each change */}
                     <Form.Control size="lg" type="password" placeholder="Password*" onChange={(e) => setPassword(e.target.value)} required/>
                 </Form.Group>
                 <div className="d-grid">
