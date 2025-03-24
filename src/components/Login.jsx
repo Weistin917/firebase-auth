@@ -50,10 +50,16 @@ function Login() {
         <div className="d-grid gap-3">
             <h4>Login</h4>
             <Form style={{width: "100%" }} onSubmit={handleLogin}>
-                <Form.Control size="lg" type="email" placeholder="Email*" onChange={(e) => setEmail(e.target.value)} required/>
-                <Form.Control size="lg" type="password" placeholder="Password*" onChange={(e) => setPassword(e.target.value)} required/>
+                <Form.Group className="mb-3">
+                    <Form.Control size="lg" type="email" placeholder="Email*" onChange={(e) => setEmail(e.target.value)} required/>
+                </Form.Group>
+                <Form.Group className="mb-3">
+                    <Form.Control size="lg" type="password" placeholder="Password*" onChange={(e) => setPassword(e.target.value)} required/>
+                </Form.Group>
+                <div className="d-grid">
+                    <Button variant="primary" type="submit" >Login</Button>
+                </div>
             </Form>
-            <Button variant="primary" type="submit" size="lg">Login</Button>
             <Button variant="outline-success" size="lg" onClick={handleGoogleSignIn}>Login with Google</Button>
             <Button variant="outline-info" size="lg" onClick={handleFaceBookSignIn}>Login with FaceBook</Button>
             <Button variant="link" size="lg" onClick={() => navigate("/register")}>Register</Button>
