@@ -13,6 +13,7 @@ function Register() {
      * */
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [verPassword, setVerPassword] = useState(false);
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -39,11 +40,16 @@ function Register() {
                     {/* Sets the password on each change */}
                     <Form.Control size="lg" type="password" placeholder="Password*" onChange={(e) => setPassword(e.target.value)} required/>
                 </Form.Group>
+                <Form.Group className="mb-3">
+                    {/* Sets the password on each change */}
+                    <Form.Control size="lg" type="password" placeholder="Enter the password again*" onChange={(e) => setVerPassword(e.target.value === password)} required/>
+                </Form.Group>
                 <div className="d-grid">
-                    <Button variant="primary" type="submit" >Register</Button>
+                    <Button variant="primary" type="submit" disabled={!verPassword}>Register</Button>
                 </div>
             </Form>
             <Button variant="link" size="md" onClick={() => navigate("/")}>Already have an acount? Login</Button>
+            {!verPassword && (<Alert variant="warning">Both passwords must be equal.</Alert>)}
             {error && (<Alert variant="danger">{error}</Alert>)}
         </div>
     );
