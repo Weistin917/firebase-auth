@@ -62,7 +62,10 @@ function Login() {
             </Form>
             <Button variant="outline-success" size="lg" onClick={handleGoogleSignIn}>Login with Google</Button>
             <Button variant="outline-info" size="lg" onClick={handleFaceBookSignIn}>Login with FaceBook</Button>
-            <Button variant="link" size="lg" onClick={() => navigate("/register")}>Register</Button>
+            <div className="d-flex mb-2 justify-content-between">
+                <Button variant="link" size="lg" onClick={() => navigate("/register")}>Register</Button>
+                <Button variant="link" size="lg" onClick={() => navigate("/forgetPassword")}>Forgot Password?</Button>
+            </div>
             {error && (<Alert variant="danger">{error}</Alert>)}
         </div>
     );
