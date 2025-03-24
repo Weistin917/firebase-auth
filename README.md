@@ -3,7 +3,7 @@ This is an aplication to practice the use of Firebase as an user authentication 
 ## Running the app locally
 After pulling the repository, run `npm install` to install the dependencies. Then run `npm run dev` to host a local server.
 ## CodeSandbox Live preview
-
+https://mhnsm4-5173.csb.app/
 ## Example
 In the Login page there are three login options: by Email and Password, by Google account and by Facebook account.
 ![Screenshot of Login page with email and password filled.](/src/assets/login.png)
